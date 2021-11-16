@@ -128,7 +128,7 @@
     }
 
     &__input:focus + &__icons {
-        fill: &accent-color;
+        fill: $accent-color;
     }
 
     &__textarea {
