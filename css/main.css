@@ -304,18 +304,18 @@ textarea {
   resize: none;
 }
 
-.description, .works, .team, .clients, .portfolio {
+.section {
   padding-top: 94px;
   padding-bottom: 94px;
 }
 
-.header__container, .hero__container, .description__container, .works__container, .team__container, .clients__container, .portfolio__container, .footer__container {
+.container {
   width: 1200px;
   padding: 0 15px;
   margin: 0 auto;
 }
 
-.description__title, .portfolio__title {
+.visually-hidden {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -369,8 +369,11 @@ textarea {
   display: flex;
 }
 
-.nav__item:not(:last-child) {
+.nav__item {
   position: relative;
+}
+
+.nav__item:not(:last-child) {
   margin-right: 50px;
 }
 
@@ -388,11 +391,11 @@ textarea {
   color: #2196f3;
 }
 
-.nav__current {
+.nav__link--current {
   color: #2196f3;
 }
 
-.nav__current::after {
+.nav__link--current::after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -427,11 +430,6 @@ textarea {
   color: #2196f3;
 }
 
-.contacts__link:hover .contacts__icon,
-.contacts__link:focus .contacts__icon {
-  fill: #2196f3;
-}
-
 .contacts__icon {
   margin-right: 10px;
   width: 16px;
@@ -441,6 +439,11 @@ textarea {
 }
 
 .contacts__icon:hover, .contacts__icon:focus {
+  fill: #2196f3;
+}
+
+.contacts__link:hover .contacts__icon,
+.contacts__link:focus .contacts__icon {
   fill: #2196f3;
 }
 
@@ -490,10 +493,6 @@ textarea {
   pointer-events: none;
 }
 
-.backdrop.is-hidden .modal {
-  transform: translate(-50%, -50%) scale(0);
-}
-
 .modal {
   padding: 40px;
   position: absolute;
@@ -506,6 +505,10 @@ textarea {
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0);
 }
 
 .modal__title {
@@ -529,11 +532,6 @@ textarea {
   border-radius: 50%;
 }
 
-.modal__button:hover .modal__close,
-.modal__button:focus .modal__close {
-  fill: #2196f3;
-}
-
 .modal__close {
   position: absolute;
   top: 50%;
@@ -542,6 +540,11 @@ textarea {
   width: 18px;
   height: 18px;
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal__button:hover .modal__close,
+.modal__button:focus .modal__close {
+  fill: #2196f3;
 }
 
 .modal__form {
@@ -594,10 +597,6 @@ textarea {
   border-color: #2196f3;
 }
 
-.modal__input:focus + .modal__icon {
-  fill: #2196f3;
-}
-
 .modal__icon {
   position: absolute;
   top: 50%;
@@ -605,6 +604,10 @@ textarea {
   width: 18px;
   height: 18px;
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal__input:focus + .modal__icon {
+  fill: #2196f3;
 }
 
 .modal__textarea {
@@ -690,16 +693,19 @@ textarea {
   text-decoration: underline;
 }
 
-.description__list {
+.description {
   display: flex;
 }
 
-.description__item:not(:last-child) {
+.description__item {
   width: 270px;
+}
+
+.description__item:not(:last-child) {
   margin-right: 30px;
 }
 
-.description-icon {
+.description__box {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -709,12 +715,12 @@ textarea {
   background-color: #f5f4fa;
 }
 
-.description-icon__icon {
+.description__icon {
   width: 70px;
   height: 70px;
 }
 
-.description-articles__title {
+.description__title {
   font-weight: 700;
   font-size: 14px;
   line-height: 1.14;
@@ -723,18 +729,14 @@ textarea {
   margin-bottom: 10px;
 }
 
-.description-articles__text {
+.description__text {
   font-size: 14px;
   line-height: 1.71;
   letter-spacing: 0.03em;
   color: #757575;
 }
 
-.works {
-  padding-top: 0;
-}
-
-.works__title {
+.section__title {
   font-weight: 700;
   font-size: 36px;
   line-height: 1.17;
@@ -744,7 +746,7 @@ textarea {
   margin-bottom: 50px;
 }
 
-.works__list {
+.works {
   display: flex;
 }
 
@@ -752,11 +754,11 @@ textarea {
   margin-right: 30px;
 }
 
-.works-thump {
+.works__thump {
   position: relative;
 }
 
-.works-thump .works-thump__text {
+.works__text {
   position: absolute;
   display: flex;
   justify-content: center;
@@ -774,21 +776,11 @@ textarea {
   background: rgba(47, 48, 58, 0.8);
 }
 
-.team {
+.team__section {
   background-color: #f5f4fa;
 }
 
-.team__title {
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 1.17;
-  text-align: center;
-  letter-spacing: 0.03em;
-  min-width: 264px;
-  margin-bottom: 50px;
-}
-
-.team__list {
+.team {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -804,11 +796,11 @@ textarea {
   margin-right: 30px;
 }
 
-.team-articles {
+.team__thump {
   padding: 30px 0;
 }
 
-.team-articles__title {
+.team__title {
   font-weight: 500;
   font-size: 16px;
   line-height: 1.19;
@@ -817,7 +809,7 @@ textarea {
   margin-bottom: 10px;
 }
 
-.team-articles__text {
+.team__text {
   margin-bottom: 16px;
   font-size: 16px;
   line-height: 1.19;
@@ -849,6 +841,10 @@ textarea {
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.social-list__link:hover, .social-list__link:focus {
+  background-color: #2196f3;
+}
+
 .social-list__icon {
   width: 20px;
   height: 20px;
@@ -856,25 +852,12 @@ textarea {
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.social-list__link:hover, .social-list__link:focus {
-  background-color: #2196f3;
-}
-
 .social-list__link:hover .social-list__icon,
 .social-list__link:focus .social-list__icon {
   fill: #ffffff;
 }
 
-.clients__title {
-  font-weight: bold;
-  font-size: 36px;
-  line-height: 1.17;
-  text-align: center;
-  letter-spacing: 0.03em;
-  margin-bottom: 50px;
-}
-
-.clients__list {
+.clients {
   display: flex;
   justify-content: space-around;
 }
@@ -904,16 +887,16 @@ textarea {
   border-color: #2196f3;
 }
 
-.clients__link:hover .clients__icon,
-.clients__link:focus .clients__icon {
-  fill: #2196f3;
-}
-
 .clients__icon {
   width: 106px;
   height: 60px;
   fill: #afb1b8;
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.clients__link:hover .clients__icon,
+.clients__link:focus .clients__icon {
+  fill: #2196f3;
 }
 
 .filters {
@@ -954,7 +937,6 @@ textarea {
 
 .grid__item {
   width: 370px;
-  height: 404px;
 }
 
 .grid__item:nth-child(-n + 6) {
@@ -967,6 +949,10 @@ textarea {
   height: 100%;
   border: 1px solid #eeeeee;
   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.product:hover, .product:focus {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
 .product__thump {
@@ -990,6 +976,11 @@ textarea {
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.product:hover .product__overlay,
+.product:focus .product__overlay {
+  transform: translateY(0);
+}
+
 .product__meta {
   padding: 20px;
 }
@@ -1008,15 +999,6 @@ textarea {
   color: #757575;
 }
 
-.product:hover, .product:focus {
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
-}
-
-.product:hover .product__overlay,
-.product:focus .product__overlay {
-  transform: translateY(0);
-}
-
 .footer {
   padding: 60px 0;
   background-color: #2f303a;
@@ -1024,6 +1006,7 @@ textarea {
 
 .footer__container {
   display: flex;
+  align-items: baseline;
 }
 
 .footer-contacts {
@@ -1033,11 +1016,14 @@ textarea {
   min-height: 81px;
 }
 
-.footer-contacts__item:not(:last-child) {
-  margin-bottom: 9px;
+.footer-contacts__item {
   font-size: 14px;
   line-height: 1.71;
   letter-spacing: 0.03em;
+}
+
+.footer-contacts__item:not(:last-child) {
+  margin-bottom: 9px;
 }
 
 .footer-contacts__link {
@@ -1160,15 +1146,15 @@ textarea {
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.button:active {
+  background-color: #188ce8;
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
+}
+
 .button__icon {
   margin-left: 10px;
   width: 24px;
   height: 24px;
   fill: #ffffff;
-}
-
-.button:active {
-  background-color: #188ce8;
-  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 /*# sourceMappingURL=main.css.map */

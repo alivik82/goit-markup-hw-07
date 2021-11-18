@@ -1,96 +1,98 @@
 .header {
-    border-bottom: 1px solid #ececec;
+  border-bottom: 1px solid #ececec;
+}
 
-    &__container {
-        @extend %container;
-        display: flex;
-        align-items: center;
-    }
+.header__container {
+  display: flex;
+  align-items: center;
 }
 
 .nav {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
+}
 
-    &__list {
-        display: flex;
-    }
+.nav__list {
+  display: flex;
+}
 
-    &__item:not(:last-child) {
-        position: relative;
-        margin-right: 50px;
-    }
+.nav__item {
+  position: relative;
 
-    &__link {
-        display: block;
-        padding: 32px 0;
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 1.14;
-        letter-spacing: 0.02em;
-        transition: color $animation-timing $timing-function;
+  &:not(:last-child) {
+    margin-right: 50px;
+  }
+}
 
-        &:hover,
-        &:focus {
-            color: $accent-color;
-        }
-    }
+.nav__link {
+  display: block;
+  padding: 32px 0;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.02em;
+  transition: color $animation-timing $timing-function;
 
-    &__current {
-        color: $accent-color;
-    }
+  &:hover,
+  &:focus {
+    color: $accent-color;
+  }
 
-    &__current::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        display: block;
-        width: 100%;
-        height: 4px;
-        border-radius: 2px;
-        background: $accent-color;
-    }
+  &--current {
+    color: $accent-color;
+  }
+
+  &--current::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background: $accent-color;
+  }
 }
 
 .contacts {
-    display: flex;
-    margin-left: auto;
+  display: flex;
+  margin-left: auto;
+}
 
-    &__item:not(:last-child) {
-        margin-right: 30px;
-    }
+.contacts__item:not(:last-child) {
+  margin-right: 30px;
+}
 
-    &__link {
-        display: flex;
-        align-items: center;
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 1.14;
-        letter-spacing: 0.02em;
-        color: $text-color;
-        transition: color $animation-timing $timing-function;
+.contacts__link {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.02em;
+  color: $text-color;
+  transition: color $animation-timing $timing-function;
 
-        &:hover,
-        &:focus {
-            color: $accent-color;
-        }
+  &:hover,
+  &:focus {
+    color: $accent-color;
+  }
+}
 
-        &:hover .contacts__icon,
-        &:focus .contacts__icon {
-            fill: $accent-color;
-        }
-    }
+.contacts__icon {
+  margin-right: 10px;
+  width: 16px;
+  height: 16px;
+  fill: $text-color;
+  transition: fill $animation-timing $timing-function;
 
-    &__icon {
-        margin-right: 10px;
-        width: 16px;
-        height: 16px;
-        fill: $text-color;
-        transition: fill $animation-timing $timing-function;
+  &:hover,
+  &:focus {
+    fill: $accent-color;
+  }
 
-        &:hover,
-        &:focus {
-            fill: $accent-color;
-        }
-    }
+  .contacts__link:hover &,
+  .contacts__link:focus & {
+    fill: $accent-color;
+  }
 }

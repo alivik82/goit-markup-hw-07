@@ -1,25 +1,16 @@
 .description {
-  @extend %section;
+  display: flex;
+}
 
-  &__container {
-    @extend %container;
-  }
+.description__item {
+  width: 270px;
 
-  &__title {
-    @extend %visually-hidden;
-  }
-
-  &__list {
-    display: flex;
-  }
-
-  &__item:not(:last-child) {
-    width: 270px;
+  &:not(:last-child) {
     margin-right: 30px;
   }
 }
 
-.description-icon {
+.description__box {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,27 +18,25 @@
   min-height: 120px;
   margin-bottom: 30px;
   background-color: #f5f4fa;
-
-  &__icon {
-    width: 70px;
-    height: 70px;
-  }
 }
 
-.description-articles {
-  &__title {
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 1.14;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-  }
+.description__icon {
+  width: 70px;
+  height: 70px;
+}
 
-  &__text {
-    font-size: 14px;
-    line-height: 1.71;
-    letter-spacing: 0.03em;
-    color: $text-color;
-  }
+.description__title {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.description__text {
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+  color: $text-color;
 }
